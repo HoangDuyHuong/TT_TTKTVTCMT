@@ -1,0 +1,4 @@
+".\Objects\mai.obj",
+".\Objects\delay.obj" 
+TO ".\Objects\chop_tat_8led" 
+PRINT(".\Listings\chop_tat_8led.m51") RAMSIZE(256) 

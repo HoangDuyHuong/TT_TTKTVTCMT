@@ -1,0 +1,55 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              08/21/2024 21:35:05 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          
+   3          int sangdan[9] = {0X00, 0X01, 0X03, 0X07, 0X0F, 0X1F, 0X3F, 0X7F, 0XFF};
+   4          int tatdan[9] =  {0XFF, 0XFE, 0XFC, 0XF8, 0XF0, 0XE0, 0XC0, 0X80, 0X00};
+   5          
+   6          void delay(long time)
+   7          {
+   8   1        time = time * 25;
+   9   1        while(time--) {;}
+  10   1      }
+  11          
+  12          int i;
+  13          
+  14          void main()
+  15          {
+  16   1        P1=0X00;
+  17   1        while(1)
+  18   1        {
+  19   2          
+  20   2          for(i=0; i<8; i++)
+  21   2          {
+  22   3            P1 = sangdan[i];
+  23   3            delay(250);
+  24   3          }
+  25   2          for(i=8; i>0; i--)
+  26   2          {
+  27   3            P1 = tatdan[8-i];
+  28   3            delay(250);
+  29   3          }
+  30   2        }
+  31   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    128    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     38       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

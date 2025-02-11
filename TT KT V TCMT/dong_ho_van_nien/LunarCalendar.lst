@@ -1,0 +1,13 @@
+C51 COMPILER V9.60.7.0   LUNARCALENDAR                                                     11/12/2024 09:11:05 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LUNARCALENDAR
+OBJECT MODULE PLACED IN .\LunarCalendar.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\Lib\LunarCalendar.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\Lunar
+                    -Calendar.lst) TABS(2) OBJECT(.\LunarCalendar.obj)
+
+line level    source
+
+*** ERROR C318 OF ..\Lib\LunarCalendar.c: can't open file '..\Lib\LunarCalendar.c'
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

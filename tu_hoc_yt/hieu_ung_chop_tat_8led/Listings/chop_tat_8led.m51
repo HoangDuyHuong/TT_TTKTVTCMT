@@ -1,0 +1,139 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    09/17/2024  10:08:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\mai.obj, .\Objects\delay.obj TO .\Objects\chop_tat_8led PRINT (.\Listings\chop_tat
+>> _8led.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\mai.obj (MAI)
+  .\Objects\delay.obj (DELAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\chop_tat_8led (MAI)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0037H     UNIT         ?PR?SANGTATLED?MAI
+            CODE    0837H     0021H     UNIT         ?PR?SANG_XEN_KE?MAI
+            CODE    0858H     0020H     UNIT         ?PR?_DELAY?DELAY
+            CODE    0878H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0884H     0008H     UNIT         ?PR?MAIN?MAI
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\chop_tat_8led (MAI)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAI
+
+?PR?MAIN?MAI                   -----    -----
+  +--> ?PR?SANGTATLED?MAI
+  +--> ?PR?SANG_XEN_KE?MAI
+
+?PR?SANGTATLED?MAI             0008H    0001H
+  +--> ?PR?_DELAY?DELAY
+
+?PR?SANG_XEN_KE?MAI            0008H    0001H
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\chop_tat_8led (MAI)
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/17/2024  10:08:30  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0837H         PUBLIC        sang_xen_ke
+  C:0884H         PUBLIC        main
+  C:0800H         PUBLIC        sangtatled
+  -------         PROC          SANGTATLED
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         5
+  C:0800H         LINE#         7
+  C:0803H         LINE#         8
+  C:0805H         LINE#         9
+  C:080DH         LINE#         10
+  C:0814H         LINE#         11
+  C:081DH         LINE#         12
+  C:0820H         LINE#         13
+  C:0826H         LINE#         14
+  C:082DH         LINE#         15
+  C:0836H         LINE#         17
+  -------         ENDPROC       SANGTATLED
+  -------         PROC          SANG_XEN_KE
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:0837H         LINE#         18
+  C:0837H         LINE#         20
+  C:083AH         LINE#         21
+  C:083DH         LINE#         22
+  C:0844H         LINE#         23
+  C:0847H         LINE#         24
+  C:084EH         LINE#         25
+  C:0857H         LINE#         27
+  -------         ENDPROC       SANG_XEN_KE
+  -------         PROC          MAIN
+  C:0884H         LINE#         28
+  C:0884H         LINE#         29
+  C:0884H         LINE#         30
+  C:0887H         LINE#         31
+  C:088AH         LINE#         32
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAI
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0858H         PUBLIC        _delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/17/2024  10:08:30  PAGE 3
+
+
+  C:0858H         LINE#         4
+  C:0858H         LINE#         5
+  C:0858H         LINE#         7
+  C:0862H         LINE#         8
+  C:0870H         LINE#         9
+  C:0877H         LINE#         10
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0080H BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=0 code=143
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

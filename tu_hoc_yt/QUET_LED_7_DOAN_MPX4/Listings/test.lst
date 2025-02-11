@@ -1,0 +1,126 @@
+C51 COMPILER V9.60.7.0   TEST                                                              09/30/2024 21:43:47 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE TEST
+OBJECT MODULE PLACED IN .\Objects\test.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE test.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\test
+                    -.lst) TABS(2) OBJECT(.\Objects\test.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "C:\Users\dellc\Downloads\TT_KTVTCMT\lib\delay.h"
+   3          
+   4          #define led P0
+   5          sbit led1 = P2^0;
+   6          sbit led2 = P2^1;
+   7          sbit led3 = P2^2;
+   8          sbit led4 = P2^3;
+   9          
+  10          unsigned char code so[] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+  11          
+  12          void hien_thi(unsigned int num){
+  13   1        unsigned char nghin, tram, chuc, dvi;
+  14   1        unsigned int i;
+  15   1        
+  16   1        nghin = num/1000;
+  17   1        tram = num%1000/100;
+  18   1        chuc = num%1000%100/10;
+  19   1        dvi = num%1000%100%10;
+  20   1        
+  21   1      for(i=0; i<250; i++)
+  22   1      {
+  23   2        led = so[nghin];
+  24   2        led1 = 1;
+  25   2        delay(10);
+  26   2        led1 = 0;
+  27   2        
+  28   2        led = so[tram];
+  29   2        led2 = 1;
+  30   2        delay(10);
+  31   2        led2 = 0;
+  32   2        
+  33   2        led = so[chuc];
+  34   2        led3 = 1;
+  35   2        delay(10);
+  36   2        led3 = 0;
+  37   2        
+  38   2        led = so[dvi];
+  39   2        led4 = 1;
+  40   2        delay(10);
+  41   2        led4 = 0;
+  42   2      }
+  43   1      }
+  44          
+  45          void dem_nguoc_trai(unsigned char num){
+  46   1        unsigned char nghin, tram;
+  47   1        unsigned int i, j;
+  48   1        for(j = num ;j>=0 ;j--){  
+  49   2         nghin = j / 10;
+  50   2         tram = j % 10;
+  51   2        for(i=0; i<100; i++){
+  52   3        led = so[nghin];
+  53   3        led1 = 1;
+  54   3        delay(1);
+C51 COMPILER V9.60.7.0   TEST                                                              09/30/2024 21:43:47 PAGE 2   
+
+  55   3        led1 = 0;
+  56   3        
+  57   3        led = so[tram];
+  58   3        led2 = 1;
+  59   3        delay(1);
+  60   3        led2 = 0;
+  61   3        }
+  62   2        
+  63   2        if(j==0){
+  64   3        j=num+1;
+  65   3        }
+  66   2        }
+  67   1      }
+  68          void dem_nguoc_phai(unsigned char num){
+  69   1        unsigned char chuc, dvi;
+  70   1        unsigned int i, j;
+  71   1        for(j = num ;j>=0 ;j--){  
+  72   2         chuc = j / 10;
+  73   2         dvi = j % 10;
+  74   2        for(i=0; i<100; i++){
+  75   3        led = so[chuc];
+  76   3        led3 = 1;
+  77   3        delay(1);
+  78   3        led3 = 0;
+  79   3        
+  80   3        led = so[dvi];
+  81   3        led4 = 1;
+  82   3        delay(1);
+  83   3        led4 = 0;
+  84   3        }
+  85   2        
+  86   2        if(j==0){
+  87   3        j=num+1;
+  88   3        }
+  89   2        }
+  90   1      }
+  91          
+  92          void main(){
+  93   1      P0 = 0x00;
+  94   1      
+  95   1             while(1){
+  96   2      //  hien_thi(2024);    
+  97   2      dem_nguoc_trai(30); 
+  98   2      dem_nguoc_phai(25);    
+  99   2          }
+ 100   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    485    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      20
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

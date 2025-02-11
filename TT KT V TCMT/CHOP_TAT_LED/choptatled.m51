@@ -1,0 +1,119 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    08/21/2024  21:36:26  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\choptatled PRINT (.\Listings\choptatled.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LMUL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\choptatled (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0026H     UNIT         ?DT?MAIN
+            DATA    002EH     0004H     UNIT         _DATA_GROUP_
+            IDATA   0032H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     006FH     UNIT         ?C?LIB_CODE
+            CODE    08FBH     004CH     UNIT         ?PR?MAIN?MAIN
+            CODE    0947H     0034H     UNIT         ?PR?_DELAY?MAIN
+            CODE    097BH     0029H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\choptatled (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                  -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?_DELAY?MAIN                002EH    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\choptatled (MAIN)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  08/21/2024  21:36:26  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0008H         PUBLIC        tatdan
+  D:0090H         PUBLIC        P1
+  C:0954H         PUBLIC        _delay
+  C:08FBH         PUBLIC        main
+  D:001AH         PUBLIC        sangdan
+  D:002CH         PUBLIC        i
+  -------         PROC          L?0015
+  -------         ENDPROC       L?0015
+  -------         PROC          _DELAY
+  D:002EH         SYMBOL        time
+  C:0954H         LINE#         6
+  C:095CH         LINE#         7
+  C:095CH         LINE#         8
+  C:096DH         LINE#         9
+  C:097AH         LINE#         10
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:08FBH         LINE#         14
+  C:08FBH         LINE#         15
+  C:08FBH         LINE#         16
+  C:08FEH         LINE#         17
+  C:08FEH         LINE#         18
+  C:08FEH         LINE#         20
+  C:0903H         LINE#         21
+  C:0903H         LINE#         22
+  C:0909H         LINE#         23
+  C:090CH         LINE#         24
+  C:091FH         LINE#         25
+  C:0932H         LINE#         26
+  C:0932H         LINE#         27
+  C:093AH         LINE#         28
+  C:093DH         LINE#         29
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?LMUL
+  C:088CH         PUBLIC        ?C?LMUL
+  -------         ENDMOD        ?C?LMUL
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:08E4H         PUBLIC        ?C?LLDIIDATA
+  C:08DBH         PUBLIC        ?C?LLDIIDATA1
+  C:08DDH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00A8H BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=51.0 xdata=0 code=423
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

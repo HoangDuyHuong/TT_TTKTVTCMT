@@ -1,0 +1,151 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              11/26/2024 07:33:14 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "matrix.h"
+   2          #include <INTRINS.h>
+   3          #include <REG51.h>
+   4          #define COMMONPORTS   P0
+   5          
+   6          // Define button pins
+   7          sbit RIGHT = P3^3; // Button for RIGHT 
+   8          sbit LEFT  = P3^2; // Button for LEFT 
+   9          sbit UP    = P3^0; // Button for UP 
+  10          sbit DOWN = P3^1; // Button for DOWN
+  11          unsigned char snake[64];
+  12          unsigned char food;
+  13          unsigned char direction = 0; // 0: Up, 1: Down, 2: Left, 3: Right
+  14          unsigned char snake_length = 2;
+  15          unsigned char display_buffer[8];
+  16          
+  17          void init_game() {
+  18   1          unsigned char i;
+  19   1          for (i = 0; i < 64; i++) {
+  20   2              snake[i] = 0;
+  21   2          }
+  22   1          snake[0] = 0; // Start position
+  23   1          food = 5;     // Initial food position
+  24   1      }
+  25          
+  26          void update_snake() {
+  27   1          unsigned char i;
+  28   1          for (i = snake_length; i > 0; i--) {
+  29   2              snake[i] = snake[i-1];
+  30   2          }
+  31   1      
+  32   1          if (direction == 0) { // Up
+  33   2              if (snake[0] < 8) {
+  34   3                  snake[0] = snake[0] + 56; // Wrap to bottom of same column
+  35   3              } else {
+  36   3                  snake[0] = snake[0] - 8;
+  37   3              }
+  38   2          } else if (direction == 1) { // Down
+  39   2              if (snake[0] >= 56) {
+  40   3                  snake[0] = snake[0] - 56; // Wrap to top of same column
+  41   3              } else {
+  42   3                  snake[0] = snake[0] + 8;
+  43   3              }
+  44   2          } else if (direction == 2) { // Left
+  45   2              if (snake[0] % 8 == 0) {
+  46   3                  snake[0] = snake[0] + 7; // Wrap to end of same row
+  47   3              } else {
+  48   3                  snake[0] = snake[0] - 1;
+  49   3              }
+  50   2          } else if (direction == 3) { // Right
+  51   2              if (snake[0] % 8 == 7) {
+  52   3                  snake[0] = snake[0] - 7; // Wrap to start of same row
+  53   3              } else {
+  54   3                  snake[0] = snake[0] + 1;
+C51 COMPILER V9.60.7.0   MAIN                                                              11/26/2024 07:33:14 PAGE 2   
+
+  55   3              }
+  56   2          }
+  57   1      }
+  58          
+  59          
+  60          
+  61          void check_collision() {
+  62   1          unsigned char i;
+  63   1          for (i = 1; i < snake_length; i++) {
+  64   2              if (snake[0] == snake[i]) {
+  65   3                // Collision detected; reset snake length and position
+  66   3                  snake_length = 1; 
+  67   3                  snake[0] = 0; // Reset to initial position 
+  68   3                  food = (food + 17) % 64; // Reposition food
+  69   3                  return;
+  70   3                  init_game();
+  71   3              }
+  72   2          }
+  73   1          if (snake[0] == food) {
+  74   2            if (snake_length < 64) { 
+  75   3              snake_length++; // Only increase length if less than 64 
+  76   3              }
+  77   2              food = (food + 17) % 64;
+  78   2          }
+  79   1      }
+  80          
+  81          void update_display_buffer() {
+  82   1          unsigned char i, row, col;
+  83   1          for (i = 0; i < 8; i++) {
+  84   2              display_buffer[i] = 0x00;
+  85   2          }
+  86   1          for (i = 0; i < snake_length; i++) {
+  87   2              row = snake[i] / 8;
+  88   2              col = snake[i] % 8;
+  89   2              display_buffer[row] |= (1 << col);
+  90   2          }
+  91   1          row = food / 8;
+  92   1          col = food % 8;
+  93   1          display_buffer[row] |= (1 << col);
+  94   1      }
+  95          
+  96          void main() {
+  97   1          unsigned char tab, j;
+  98   1          unsigned int i;
+  99   1      
+ 100   1          init_game();
+ 101   1          while(1) {
+ 102   2              if (UP == 0)    direction = 0;
+ 103   2              if (DOWN == 0)  direction = 1;
+ 104   2              if (LEFT == 0)  direction = 2;
+ 105   2              if (RIGHT == 0) direction = 3;
+ 106   2              update_snake();
+ 107   2              check_collision();
+ 108   2              update_display_buffer();
+ 109   2      
+ 110   2              for(i = 0; i < 50; i++) { // Refresh the display
+ 111   3                  for(tab = 0; tab < 8; tab++) {
+ 112   4                      Hc595SendByte(0x00);
+ 113   4                      COMMONPORTS = TAB[tab];
+ 114   4                      Hc595SendByte(display_buffer[tab]);
+ 115   4                      delay(2);
+ 116   4                  }
+C51 COMPILER V9.60.7.0   MAIN                                                              11/26/2024 07:33:14 PAGE 3   
+
+ 117   3              }
+ 118   2      
+ 119   2              delay(1); // Adjust speed
+ 120   2          }
+ 121   1      }
+*** WARNING C280 IN LINE 97 OF main.c: 'j': unreferenced local variable
+*** WARNING C294 IN LINE 70 OF main.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    497    ----
+   CONSTANT SIZE    =      8    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     75       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

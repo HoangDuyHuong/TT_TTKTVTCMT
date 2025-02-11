@@ -1,0 +1,13 @@
+C51 COMPILER V9.60.7.0   SOFT_I2C                                                          11/12/2024 09:11:05 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE SOFT_I2C
+OBJECT MODULE PLACED IN .\Soft_I2C.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\Lib\Soft_I2C.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\Soft_I2C.l
+                    -st) TABS(2) OBJECT(.\Soft_I2C.obj)
+
+line level    source
+
+*** ERROR C318 OF ..\Lib\Soft_I2C.c: can't open file '..\Lib\Soft_I2C.c'
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

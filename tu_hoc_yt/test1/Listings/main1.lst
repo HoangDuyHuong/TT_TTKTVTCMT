@@ -1,0 +1,75 @@
+C51 COMPILER V9.60.7.0   MAIN1                                                             09/17/2024 22:59:09 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN1
+OBJECT MODULE PLACED IN .\Objects\main1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\mai
+                    -n1.lst) TABS(2) OBJECT(.\Objects\main1.obj)
+
+line level    source
+
+   1          #include "main1.h"
+   2          #include "C:\Users\dellc\Downloads\TT KIEN TRUC VA TO CHUC MAY TINH\TT KT V TCMT\lib\delay.h"
+   3          unsigned char code code7segac[]= { 0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90 };
+   4          
+   5          // khai bao ket noi
+   6          sbit dendo = P0^0;
+   7          sbit denvang = P0^1;
+   8          sbit denxanh = P0^2;
+   9          #define ledchuc  P2
+  10          #define leddvi  P3
+  11          
+  12          
+  13          void main(){
+  14   1        unsigned char i;
+  15   1             while(1){
+  16   2            // den do
+  17   2            dendo = 1;
+  18   2            denvang = 0;
+  19   2            denxanh = 0;
+  20   2            for(i=20; i>=0; i--)
+  21   2            {
+  22   3            ledchuc = code7segac[i/10];
+  23   3            leddvi = code7segac[i%10];
+  24   3            delay(1000);
+  25   3            }
+  26   2            // den vang
+  27   2            dendo = 0;
+  28   2            denvang = 1;
+  29   2            denxanh = 0;
+  30   2            for(i=5; i>=0; i--)
+  31   2            {
+  32   3            ledchuc = code7segac[i/10];
+  33   3            leddvi = code7segac[i%10];
+  34   3            delay(1000);
+  35   3            }
+  36   2            // den xanh
+  37   2            dendo = 0;
+  38   2            denvang = 0;
+  39   2            denxanh = 1;
+  40   2            for(i=25; i>=0; i--)
+  41   2            {
+  42   3            ledchuc = code7segac[i/10];
+  43   3            leddvi = code7segac[i%10];
+  44   3            delay(1000);  
+  45   3            }
+  46   2            
+  47   2              
+  48   2            }
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    146    ----
+   CONSTANT SIZE    =     10    ----
+C51 COMPILER V9.60.7.0   MAIN1                                                             09/17/2024 22:59:09 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

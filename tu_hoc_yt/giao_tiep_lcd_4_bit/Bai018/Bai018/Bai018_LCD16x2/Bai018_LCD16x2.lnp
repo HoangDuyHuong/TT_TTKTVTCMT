@@ -1,0 +1,6 @@
+"main.obj",
+".\LCD4.obj",
+".\Delay.obj" 
+TO "Bai018_LCD16x2" 
+
+ru 

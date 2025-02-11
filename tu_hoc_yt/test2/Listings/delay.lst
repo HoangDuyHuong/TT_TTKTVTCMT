@@ -1,0 +1,60 @@
+C51 COMPILER V9.60.7.0   DELAY                                                             09/10/2024 15:25:12 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN .\Objects\delay.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\lib\delay.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\delay.lst) TABS(2) OBJECT(.\Objects\delay.obj)
+
+line level    source
+
+   1          #include "delay.h"
+   2          #include "main.h"
+   3          
+   4          #if(FREQ_OSC==12000000)
+   5            void delay(unsigned int t)
+   6            {
+   7   1        unsigned int x , y ;
+   8   1          for(x=0; x<t; x++){
+   9   2            for(y=0; y<123; y++);
+  10   2          }
+  11   1        }
+  12          #elif(FREQ_OSC==11059200)
+                void delay(unsigned int t)
+                {
+                unsigned int x , y ;
+                  for(x=0; x<t; x++){
+                    for(y=0; y<113; y++);
+                  }
+                }
+                #elif(FREQ_OSC==8000000)
+                void delay(unsigned int t)
+                {
+                unsigned int x , y ;
+                  for(x=0; x<t; x++){
+                    for(y=0; y<218; y++);
+                  }
+                }
+                #elif(FREQ_OSC==4000000)
+                void delay(unsigned int t)
+                {
+                unsigned int x , y ;
+                  for(x=0; x<t; x++){
+                    for(y=0; y<106; y++);
+                  }
+                }
+              #endif
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     32    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

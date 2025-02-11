@@ -1,0 +1,170 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    09/28/2024  22:45:03  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Delay.obj TO .\Objects\QUET_LED_7_DOAN_MPX4 PRINT (.\Listings\
+>> QUET_LED_7_DOAN_MPX4.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\Delay.obj (DELAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  .\Objects\QUET_LED_7_DOAN_MPX4 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000BH     UNIT         _DATA_GROUP_
+            IDATA   0013H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00A8H     UNIT         ?PR?_DISPLAY?MAIN
+            CODE    08A8H     0055H     UNIT         ?C?LIB_CODE
+            CODE    08FDH     0048H     UNIT         ?PR?MAIN?MAIN
+            CODE    0945H     0020H     UNIT         ?PR?_DELAY?DELAY
+            CODE    0965H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0971H     000AH     UNIT         ?CO?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\QUET_LED_7_DOAN_MPX4 (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  0008H    0004H
+  +--> ?PR?_DISPLAY?MAIN
+  +--> ?PR?_DELAY?DELAY
+
+?PR?_DISPLAY?MAIN              000CH    0007H
+  +--> ?CO?MAIN
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\QUET_LED_7_DOAN_MPX4 (MAIN)
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/28/2024  22:45:03  PAGE 2
+
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  B:00A0H.0       PUBLIC        LED1
+  B:00A0H.1       PUBLIC        LED2
+  B:00A0H.2       PUBLIC        LED3
+  B:00A0H.3       PUBLIC        LED4
+  C:08FDH         PUBLIC        main
+  C:0971H         PUBLIC        seg
+  C:0800H         PUBLIC        _display
+  -------         PROC          _DISPLAY
+  D:000CH         SYMBOL        left
+  D:0002H         SYMBOL        right
+  -------         DO            
+  D:000EH         SYMBOL        i
+  D:000FH         SYMBOL        digit1
+  D:0010H         SYMBOL        digit2
+  D:0011H         SYMBOL        digit3
+  D:0012H         SYMBOL        digit4
+  -------         ENDDO         
+  C:0800H         LINE#         10
+  C:0808H         LINE#         13
+  C:0815H         LINE#         14
+  C:0824H         LINE#         15
+  C:082DH         LINE#         16
+  C:083AH         LINE#         17
+  C:0849H         LINE#         18
+  C:0852H         LINE#         20
+  C:0858H         LINE#         21
+  C:0860H         LINE#         22
+  C:0862H         LINE#         23
+  C:0869H         LINE#         24
+  C:086BH         LINE#         27
+  C:0873H         LINE#         28
+  C:0875H         LINE#         29
+  C:087CH         LINE#         30
+  C:087EH         LINE#         32
+  C:0886H         LINE#         33
+  C:0888H         LINE#         34
+  C:088FH         LINE#         35
+  C:0891H         LINE#         37
+  C:0899H         LINE#         38
+  C:089BH         LINE#         39
+  C:08A2H         LINE#         40
+  C:08A4H         LINE#         41
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        left_count
+  D:000AH         SYMBOL        right_count
+  -------         ENDDO         
+  C:08FDH         LINE#         44
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/28/2024  22:45:03  PAGE 3
+
+
+  C:08FDH         LINE#         45
+  C:0903H         LINE#         46
+  C:0909H         LINE#         48
+  C:0909H         LINE#         49
+  C:0914H         LINE#         51
+  C:091AH         LINE#         52
+  C:091FH         LINE#         53
+  C:092AH         LINE#         54
+  C:0932H         LINE#         55
+  C:0932H         LINE#         56
+  C:0934H         LINE#         57
+  C:093CH         LINE#         58
+  C:093CH         LINE#         59
+  C:0943H         LINE#         60
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0945H         PUBLIC        _delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:0945H         LINE#         5
+  C:0945H         LINE#         6
+  C:0945H         LINE#         8
+  C:094FH         LINE#         9
+  C:094FH         LINE#         10
+  C:095DH         LINE#         11
+  C:0964H         LINE#         12
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        ?C?UIDIV
+  C:08A8H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 011AH BYTE (13%) *
+******************************************************************************
+
+Program Size: data=20.0 xdata=0 code=382
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

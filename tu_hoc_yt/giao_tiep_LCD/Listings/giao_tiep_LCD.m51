@@ -1,0 +1,214 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    09/23/2024  12:03:02  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Delay.obj TO .\Objects\giao_tiep_LCD PRINT (.\Listings\giao_ti
+>> ep_LCD.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\Delay.obj (DELAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\giao_tiep_LCD (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0007H     UNIT         _DATA_GROUP_
+            DATA    000FH     0001H     UNIT         ?DT?_CHU_VT?MAIN
+            IDATA   0010H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     002DH     UNIT         ?C?LIB_CODE
+            CODE    082DH     002CH     UNIT         ?PR?LCD_INITIAL?MAIN
+            CODE    0859H     0023H     UNIT         ?PR?_CHUOI?MAIN
+            CODE    087CH     0020H     UNIT         ?PR?_DELAY?DELAY
+            CODE    089CH     001FH     UNIT         ?PR?_CHUOI_VT?MAIN
+            CODE    08BBH     0017H     UNIT         ?PR?_CHU_VT?MAIN
+            CODE    08D2H     0012H     UNIT         ?PR?MAIN?MAIN
+            CODE    08E4H     000FH     UNIT         ?PR?_LCD_CMD?MAIN
+            CODE    08F3H     000FH     UNIT         ?PR?_CHU?MAIN
+            CODE    0902H     000CH     UNIT         ?C_C51STARTUP
+            CODE    090EH     0009H     UNIT         ?CO?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\giao_tiep_LCD (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  -----    -----
+  +--> ?PR?LCD_INITIAL?MAIN
+  +--> ?CO?MAIN
+  +--> ?PR?_CHUOI_VT?MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/23/2024  12:03:02  PAGE 2
+
+
+?PR?LCD_INITIAL?MAIN           -----    -----
+  +--> ?PR?_LCD_CMD?MAIN
+  +--> ?PR?_DELAY?DELAY
+
+?PR?_LCD_CMD?MAIN              -----    -----
+  +--> ?PR?_DELAY?DELAY
+
+?PR?_CHUOI_VT?MAIN             0008H    0003H
+  +--> ?PR?_LCD_CMD?MAIN
+  +--> ?PR?_CHUOI?MAIN
+
+?PR?_CHUOI?MAIN                000BH    0004H
+  +--> ?PR?_CHU?MAIN
+
+?PR?_CHU?MAIN                  -----    -----
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\giao_tiep_LCD (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:082DH         PUBLIC        lcd_initial
+  C:08BBH         PUBLIC        _chu_vt
+  C:0859H         PUBLIC        _chuoi
+  B:00A0H.0       PUBLIC        RS
+  C:08D2H         PUBLIC        main
+  C:08F3H         PUBLIC        _chu
+  B:00A0H.1       PUBLIC        E
+  C:08E4H         PUBLIC        _lcd_cmd
+  C:089CH         PUBLIC        _chuoi_vt
+  -------         PROC          _LCD_CMD
+  D:0007H         SYMBOL        cmd
+  C:08E4H         LINE#         8
+  C:08E4H         LINE#         9
+  C:08E6H         LINE#         10
+  C:08E8H         LINE#         11
+  C:08EAH         LINE#         12
+  C:08ECH         LINE#         13
+  -------         ENDPROC       _LCD_CMD
+  -------         PROC          _CHU
+  D:0007H         SYMBOL        c
+  C:08F3H         LINE#         15
+  C:08F3H         LINE#         16
+  C:08F5H         LINE#         17
+  C:08F7H         LINE#         18
+  C:08F9H         LINE#         19
+  C:08FBH         LINE#         20
+  -------         ENDPROC       _CHU
+  -------         PROC          _CHUOI
+  D:000BH         SYMBOL        str
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/23/2024  12:03:02  PAGE 3
+
+
+  -------         DO            
+  D:000EH         SYMBOL        i
+  -------         ENDDO         
+  C:0859H         LINE#         22
+  C:085FH         LINE#         23
+  C:0862H         LINE#         24
+  C:0874H         LINE#         25
+  C:0877H         LINE#         26
+  C:0879H         LINE#         27
+  C:087BH         LINE#         28
+  -------         ENDPROC       _CHUOI
+  -------         PROC          LCD_INITIAL
+  C:082DH         LINE#         29
+  C:082DH         LINE#         30
+  C:0832H         LINE#         31
+  C:0839H         LINE#         32
+  C:083EH         LINE#         33
+  C:0845H         LINE#         34
+  C:084AH         LINE#         36
+  C:084FH         LINE#         37
+  C:0854H         LINE#         38
+  -------         ENDPROC       LCD_INITIAL
+  -------         PROC          _CHU_VT
+  D:0007H         SYMBOL        row
+  D:0005H         SYMBOL        col
+  D:000FH         SYMBOL        c
+  -------         DO            
+  D:0007H         SYMBOL        cmd
+  -------         ENDDO         
+  C:08BBH         LINE#         43
+  C:08BDH         LINE#         46
+  C:08CAH         LINE#         47
+  C:08CDH         LINE#         49
+  -------         ENDPROC       _CHU_VT
+  -------         PROC          _CHUOI_VT
+  D:0007H         SYMBOL        row
+  D:0005H         SYMBOL        col
+  D:0008H         SYMBOL        str
+  -------         DO            
+  D:0007H         SYMBOL        cmd
+  -------         ENDDO         
+  C:089CH         LINE#         53
+  C:08A2H         LINE#         56
+  C:08AFH         LINE#         57
+  C:08B2H         LINE#         59
+  -------         ENDPROC       _CHUOI_VT
+  -------         PROC          MAIN
+  C:08D2H         LINE#         62
+  C:08D2H         LINE#         63
+  C:08D5H         LINE#         65
+  C:08E2H         LINE#         70
+  C:08E2H         LINE#         72
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/23/2024  12:03:02  PAGE 4
+
+
+  C:087CH         PUBLIC        _delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:087CH         LINE#         5
+  C:087CH         LINE#         6
+  C:087CH         LINE#         8
+  C:0886H         LINE#         9
+  C:0886H         LINE#         10
+  C:0894H         LINE#         11
+  C:089BH         LINE#         12
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0800H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_CHU_VT?MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00DEH BYTE (10%) *
+******************************************************************************
+
+Program Size: data=17.0 xdata=0 code=282
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

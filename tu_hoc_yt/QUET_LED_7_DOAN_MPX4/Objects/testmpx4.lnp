@@ -1,0 +1,4 @@
+".\Objects\test.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\testmpx4" 
+PRINT(".\Listings\testmpx4.m51") RAMSIZE(256) 

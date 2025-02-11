@@ -1,0 +1,13 @@
+C51 COMPILER V9.60.7.0   RTC_DS1307                                                        11/12/2024 09:11:05 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE RTC_DS1307
+OBJECT MODULE PLACED IN .\Rtc_Ds1307.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\Lib\Rtc_Ds1307.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\Rtc_Ds13
+                    -07.lst) TABS(2) OBJECT(.\Rtc_Ds1307.obj)
+
+line level    source
+
+*** ERROR C318 OF ..\Lib\Rtc_Ds1307.c: can't open file '..\Lib\Rtc_Ds1307.c'
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

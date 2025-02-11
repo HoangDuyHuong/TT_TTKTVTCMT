@@ -1,0 +1,13 @@
+C51 COMPILER V9.60.7.0   LCD4                                                              11/12/2024 09:11:05 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LCD4
+OBJECT MODULE PLACED IN .\LCD4.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\Lib\LCD4.c OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\LCD4.lst) TABS
+                    -(2) OBJECT(.\LCD4.obj)
+
+line level    source
+
+*** ERROR C318 OF ..\Lib\LCD4.c: can't open file '..\Lib\LCD4.c'
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

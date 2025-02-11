@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\giao_tiep_LCD" 
+PRINT(".\Listings\giao_tiep_LCD.m51") RAMSIZE(256) 

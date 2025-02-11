@@ -1,0 +1,134 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    09/17/2024  23:00:02  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main1.obj, .\Objects\delay.obj TO .\Objects\main PRINT (.\Listings\main.m51) RAMSI
+>> ZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main1.obj (MAIN1)
+  .\Objects\delay.obj (DELAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\main (MAIN1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0092H     UNIT         ?PR?MAIN?MAIN1
+            CODE    0892H     0020H     UNIT         ?PR?_DELAY?DELAY
+            CODE    08B2H     000CH     UNIT         ?C_C51STARTUP
+            CODE    08BEH     000AH     UNIT         ?CO?MAIN1
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\main (MAIN1)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN1
+
+?PR?MAIN?MAIN1                 0008H    0001H
+  +--> ?CO?MAIN1
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\main (MAIN1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/17/2024  23:00:02  PAGE 2
+
+
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:0080H.0       PUBLIC        dendo
+  C:0800H         PUBLIC        main
+  C:08BEH         PUBLIC        code7segac
+  B:0080H.1       PUBLIC        denvang
+  B:0080H.2       PUBLIC        denxanh
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         13
+  C:0800H         LINE#         15
+  C:0800H         LINE#         17
+  C:0802H         LINE#         18
+  C:0804H         LINE#         19
+  C:0806H         LINE#         20
+  C:0809H         LINE#         21
+  C:0809H         LINE#         22
+  C:0815H         LINE#         23
+  C:0820H         LINE#         24
+  C:0827H         LINE#         25
+  C:0830H         LINE#         27
+  C:0832H         LINE#         28
+  C:0834H         LINE#         29
+  C:0836H         LINE#         30
+  C:0839H         LINE#         31
+  C:0839H         LINE#         32
+  C:0845H         LINE#         33
+  C:0850H         LINE#         34
+  C:0857H         LINE#         35
+  C:0860H         LINE#         37
+  C:0862H         LINE#         38
+  C:0864H         LINE#         39
+  C:0866H         LINE#         40
+  C:0870H         LINE#         41
+  C:0870H         LINE#         42
+  C:087CH         LINE#         43
+  C:0887H         LINE#         44
+  C:088EH         LINE#         45
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN1
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0892H         PUBLIC        _delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:0892H         LINE#         4
+  C:0892H         LINE#         5
+  C:0892H         LINE#         7
+  C:089CH         LINE#         8
+  C:08AAH         LINE#         9
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/17/2024  23:00:02  PAGE 3
+
+
+  C:08B1H         LINE#         10
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00BCH BYTE ( 9%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=0 code=203
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

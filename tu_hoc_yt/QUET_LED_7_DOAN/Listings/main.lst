@@ -1,0 +1,82 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              09/24/2024 17:32:05 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "C:\Users\dellc\Downloads\TT_KTVTCMT\lib\delay.h"
+   3          
+   4          // khai bao ket noi
+   5          //sbit D1 = P0^0;
+   6          //sbit V1 = P0^1;
+   7          //sbit S1 = P0^2;
+   8          //sbit D2 = P0^3;
+   9          //sbit V2 = P0^4;
+  10          //sbit S2 = P0^5;
+  11          
+  12          sbit led1chuc = P1^0;
+  13          sbit led1dvi = P1^1;
+  14          sbit led2chuc = P1^2;
+  15          sbit led2dvi = P1^3;
+  16          
+  17          #define led1 P2
+  18          #define led2 P3
+  19          
+  20          unsigned char code so[] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+  21          
+  22          void display_number(unsigned char number) {
+  23   1          unsigned char chuc = number / 10;
+  24   1          unsigned char dvi = number % 10;
+  25   1          unsigned int i;
+  26   1      
+  27   1          for (i = 0; i < 100; i++) { // Quét LED nhi?u l?n d? duy trì d? sáng
+  28   2              // Hi?n th? hàng ch?c
+  29   2              led1 = so[chuc];
+  30   2              led1chuc = 1;
+  31   2              delay(1);
+  32   2              led1chuc = 0;
+  33   2      
+  34   2              // Hi?n th? hàng don v?
+  35   2              led1 = so[dvi];
+  36   2              led1dvi = 1;
+  37   2              delay(1);
+  38   2              led1dvi = 0;
+  39   2          }
+  40   1      }
+  41          
+  42          void main() {
+  43   1          unsigned char dem;
+  44   1          P0 = 0x00;
+  45   1          dem = 30; // Ð?t giá tr? ban d?u cho dem
+  46   1      
+  47   1          while (1) {
+  48   2              for (dem = 30; dem <= 30; dem--) { // S?a di?u ki?n vòng l?p d? bao g?m c? s? 0
+  49   3                  display_number(dem);
+  50   3                  delay(1000); // Tr? 1 giây
+  51   3                  if (dem == 0) {
+  52   4                      dem = 30; // Ð?t l?i giá tr? cho dem khi d?m v? 0
+  53   4                  }
+  54   3              }
+C51 COMPILER V9.60.7.0   MAIN                                                              09/24/2024 17:32:05 PAGE 2   
+
+  55   2          }
+  56   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    115    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

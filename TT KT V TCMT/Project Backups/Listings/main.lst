@@ -1,0 +1,51 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              09/09/2024 21:41:14 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ..\..\main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          // khai bao ket noi chan
+   3          sbit DENXANH = P0^0;
+   4          sbit DENVANG = P0^1;
+   5          sbit DENDO = P0^2;
+   6          sbit DENXANH1 = P0^3;
+   7          sbit DENVANG1 = P0^4;
+   8          sbit DENDO1 = P0^5;
+   9          void delay(long time){
+  10   1        
+  11   1        time = time * 25;
+  12   1        while(time--) {;}
+  13   1      }
+  14          char so [] = {0xFC, 0x60, 0xDA, 0xF2, 0x66, 0xB6, 0xBE, 0xE0, 0xFE, 0xF6};
+  15          void main(){
+  16   1      int i;
+  17   1        // bat den do
+  18   1        DENDO = 0;
+  19   1        DENXANH = 1;
+  20   1        DENVANG = 1;
+  21   1        for(i=20; i>=0; i--) {
+  22   2          P1^1=1;
+*** ERROR C141 IN LINE 22 OF ..\..\main.c: syntax error near '=', expected ';'
+  23   2          P2 = so[j%10];
+*** ERROR C202 IN LINE 23 OF ..\..\main.c: 'j': undefined identifier
+  24   2          P1^2 = 0;
+*** ERROR C141 IN LINE 24 OF ..\..\main.c: syntax error near '=', expected ';'
+  25   2          delay(3000);
+  26   2          P1^1 = 1;
+*** ERROR C141 IN LINE 26 OF ..\..\main.c: syntax error near '=', expected ';'
+  27   2          P2 = so[j/10];
+*** ERROR C202 IN LINE 27 OF ..\..\main.c: 'j': undefined identifier
+  28   2          P1^2 = 0;
+*** ERROR C141 IN LINE 28 OF ..\..\main.c: syntax error near '=', expected ';'
+  29   2          delay(3000);
+  30   2          
+  31   2        }
+  32   1      }
+  33          
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  6 ERROR(S)

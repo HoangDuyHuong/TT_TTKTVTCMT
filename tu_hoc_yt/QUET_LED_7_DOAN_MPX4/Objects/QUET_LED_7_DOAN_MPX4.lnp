@@ -1,0 +1,4 @@
+".\Objects\main.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\QUET_LED_7_DOAN_MPX4" 
+PRINT(".\Listings\QUET_LED_7_DOAN_MPX4.m51") RAMSIZE(256) 

@@ -1,0 +1,4 @@
+".\Objects\den_gt.obj",
+".\Objects\delay.obj" 
+TO ".\Objects\den_gt" 
+PRINT(".\Listings\den_gt.m51") RAMSIZE(256) 

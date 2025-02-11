@@ -1,0 +1,7 @@
+".\Objects\main.obj",
+".\Objects\LCD4.obj",
+".\Objects\Delay.obj",
+".\Objects\Soft_I2C.obj",
+".\Objects\Rtc_Ds1307.obj" 
+TO ".\Objects\dong_ho_real_time_th" 
+PRINT(".\Listings\dong_ho_real_time_th.m51") RAMSIZE(256) 

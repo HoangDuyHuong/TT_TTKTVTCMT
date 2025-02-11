@@ -1,0 +1,227 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    09/30/2024  21:43:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\test.obj, .\Objects\Delay.obj TO .\Objects\testmpx4 PRINT (.\Listings\testmpx4.m51
+>> ) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\test.obj (TEST)
+  .\Objects\Delay.obj (DELAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  .\Objects\testmpx4 (TEST)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0007H     UNIT         _DATA_GROUP_
+            DATA    000FH     0006H     UNIT         ?DT?_HIEN_THI?TEST
+            IDATA   0015H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00D8H     UNIT         ?PR?_HIEN_THI?TEST
+            CODE    08D8H     007FH     UNIT         ?PR?_DEM_NGUOC_TRAI?TEST
+            CODE    0957H     007FH     UNIT         ?PR?_DEM_NGUOC_PHAI?TEST
+            CODE    09D6H     0055H     UNIT         ?C?LIB_CODE
+            CODE    0A2BH     0020H     UNIT         ?PR?_DELAY?DELAY
+            CODE    0A4BH     000FH     UNIT         ?PR?MAIN?TEST
+            CODE    0A5AH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0A66H     000AH     UNIT         ?CO?TEST
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\testmpx4 (TEST)
+
+
+SEGMENT                            DATA_GROUP 
+  +--> CALLED SEGMENT            START    LENGTH
+------------------------------------------------
+?C_C51STARTUP                    -----    -----
+  +--> ?PR?MAIN?TEST
+
+?PR?MAIN?TEST                    -----    -----
+  +--> ?PR?_DEM_NGUOC_TRAI?TEST
+  +--> ?PR?_DEM_NGUOC_PHAI?TEST
+
+?PR?_DEM_NGUOC_TRAI?TEST         0008H    0007H
+  +--> ?CO?TEST
+  +--> ?PR?_DELAY?DELAY
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/30/2024  21:43:47  PAGE 2
+
+
+?PR?_DEM_NGUOC_PHAI?TEST         0008H    0007H
+  +--> ?CO?TEST
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\testmpx4 (TEST)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEST
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:0A4BH         PUBLIC        main
+  C:0957H         PUBLIC        _dem_nguoc_phai
+  C:08D8H         PUBLIC        _dem_nguoc_trai
+  C:0800H         PUBLIC        _hien_thi
+  C:0A66H         PUBLIC        so
+  B:00A0H.0       PUBLIC        led1
+  B:00A0H.1       PUBLIC        led2
+  B:00A0H.2       PUBLIC        led3
+  B:00A0H.3       PUBLIC        led4
+  -------         PROC          _HIEN_THI
+  D:0002H         SYMBOL        num
+  -------         DO            
+  D:000FH         SYMBOL        nghin
+  D:0010H         SYMBOL        tram
+  D:0011H         SYMBOL        chuc
+  D:0012H         SYMBOL        dvi
+  D:0013H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         12
+  C:0804H         LINE#         16
+  C:080DH         LINE#         17
+  C:0827H         LINE#         18
+  C:084EH         LINE#         19
+  C:0875H         LINE#         21
+  C:087AH         LINE#         22
+  C:087AH         LINE#         23
+  C:0882H         LINE#         24
+  C:0884H         LINE#         25
+  C:088BH         LINE#         26
+  C:088DH         LINE#         28
+  C:0895H         LINE#         29
+  C:0897H         LINE#         30
+  C:089EH         LINE#         31
+  C:08A0H         LINE#         33
+  C:08A8H         LINE#         34
+  C:08AAH         LINE#         35
+  C:08B1H         LINE#         36
+  C:08B3H         LINE#         38
+  C:08BBH         LINE#         39
+  C:08BDH         LINE#         40
+  C:08C4H         LINE#         41
+  C:08C6H         LINE#         42
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/30/2024  21:43:47  PAGE 3
+
+
+  C:08D7H         LINE#         43
+  -------         ENDPROC       _HIEN_THI
+  -------         PROC          _DEM_NGUOC_TRAI
+  D:0008H         SYMBOL        num
+  -------         DO            
+  D:0009H         SYMBOL        nghin
+  D:000AH         SYMBOL        tram
+  D:000BH         SYMBOL        i
+  D:000DH         SYMBOL        j
+  -------         ENDDO         
+  C:08D8H         LINE#         45
+  C:08DAH         LINE#         48
+  C:08E6H         LINE#         49
+  C:08F3H         LINE#         50
+  C:0900H         LINE#         51
+  C:0905H         LINE#         52
+  C:090DH         LINE#         53
+  C:090FH         LINE#         54
+  C:0916H         LINE#         55
+  C:0918H         LINE#         57
+  C:0920H         LINE#         58
+  C:0922H         LINE#         59
+  C:0929H         LINE#         60
+  C:092BH         LINE#         61
+  C:093CH         LINE#         63
+  C:0942H         LINE#         64
+  C:094CH         LINE#         65
+  C:094CH         LINE#         66
+  C:0956H         LINE#         67
+  -------         ENDPROC       _DEM_NGUOC_TRAI
+  -------         PROC          _DEM_NGUOC_PHAI
+  D:0008H         SYMBOL        num
+  -------         DO            
+  D:0009H         SYMBOL        chuc
+  D:000AH         SYMBOL        dvi
+  D:000BH         SYMBOL        i
+  D:000DH         SYMBOL        j
+  -------         ENDDO         
+  C:0957H         LINE#         68
+  C:0959H         LINE#         71
+  C:0965H         LINE#         72
+  C:0972H         LINE#         73
+  C:097FH         LINE#         74
+  C:0984H         LINE#         75
+  C:098CH         LINE#         76
+  C:098EH         LINE#         77
+  C:0995H         LINE#         78
+  C:0997H         LINE#         80
+  C:099FH         LINE#         81
+  C:09A1H         LINE#         82
+  C:09A8H         LINE#         83
+  C:09AAH         LINE#         84
+  C:09BBH         LINE#         86
+  C:09C1H         LINE#         87
+  C:09CBH         LINE#         88
+  C:09CBH         LINE#         89
+  C:09D5H         LINE#         90
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/30/2024  21:43:47  PAGE 4
+
+
+  -------         ENDPROC       _DEM_NGUOC_PHAI
+  -------         PROC          MAIN
+  C:0A4BH         LINE#         92
+  C:0A4BH         LINE#         93
+  C:0A4EH         LINE#         95
+  C:0A4EH         LINE#         97
+  C:0A53H         LINE#         98
+  C:0A58H         LINE#         99
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEST
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0A2BH         PUBLIC        _delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        x
+  D:0002H         SYMBOL        y
+  -------         ENDDO         
+  C:0A2BH         LINE#         5
+  C:0A2BH         LINE#         6
+  C:0A2BH         LINE#         8
+  C:0A35H         LINE#         9
+  C:0A35H         LINE#         10
+  C:0A43H         LINE#         11
+  C:0A4AH         LINE#         12
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        ?C?UIDIV
+  C:09D6H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_HIEN_THI?TEST
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 020FH BYTE (25%) *
+******************************************************************************
+
+Program Size: data=22.0 xdata=0 code=627
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
